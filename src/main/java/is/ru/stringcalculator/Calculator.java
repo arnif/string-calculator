@@ -8,7 +8,7 @@ public class Calculator {
 			return 0;
 		}
 
-		if (numbers.contains(",")) {
+		if (numbers.contains(",") || numbers.contains("\n")) {
 			String[] result = splitString(numbers);
 			
 			return sum(result);
@@ -23,7 +23,12 @@ public class Calculator {
 	}
 
 	private static String[] splitString(String s) {
-		return s.split(",");
+		return s.split("\\,|\n");
+		
+	}
+
+	private static String[] splitStringNewline(String s) {
+		return s.split("\n");
 	}
 
 	private static int sum(String[] n) {
