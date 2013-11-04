@@ -9,12 +9,9 @@ public class Calculator {
 		}
 
 		if (numbers.contains(",")) {
-			String[] sum = numbers.split(",");
-			int total = 0;
-			for (String n : sum) {
-				total += toInt(n);
-			}
-			return total;
+			String[] result = splitString(numbers);
+			
+			return sum(result);
 		}
 
 		return toInt(numbers);
@@ -23,6 +20,18 @@ public class Calculator {
 
 	private static int toInt(String s) {
 		return Integer.parseInt(s);
+	}
+
+	private static String[] splitString(String s) {
+		return s.split(",");
+	}
+
+	private static int sum(String[] n) {
+		int total = 0;
+		for (String i :  n) {
+				total += toInt(i);
+			}
+		return total;
 	}
 
 }
