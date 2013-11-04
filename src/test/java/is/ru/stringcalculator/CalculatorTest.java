@@ -16,7 +16,22 @@ public class CalculatorTest {
 
 	@Test
 	public void testOne() {
-		assertEquals(1, Calculator.add("1"));
+		assertEquals(3, Calculator.add("3"));
+	}
+
+	@Test
+	public void testTwo() {
+		assertEquals(4, Calculator.add("2,2"));
+	}
+
+	@Test
+	public void testThree() {
+		assertEquals(7, Calculator.add("2,1,4"));
+	}
+
+	@Test
+	public void testFour() {
+		assertEquals(10, Calculator.add("1,2,3,4"));
 	}
 
 

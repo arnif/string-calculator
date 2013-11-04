@@ -8,9 +8,21 @@ public class Calculator {
 			return 0;
 		}
 
-	
+		if (numbers.contains(",")) {
+			String[] sum = numbers.split(",");
+			int total = 0;
+			for (String n : sum) {
+				total += toInt(n);
+			}
+			return total;
+		}
 
-		return -1;
+		return toInt(numbers);
+	}
+
+
+	private static int toInt(String s) {
+		return Integer.parseInt(s);
 	}
 
 }
