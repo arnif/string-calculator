@@ -9,9 +9,16 @@ public class Calculator {
 		}
 
 		if (numbers.contains(",") || numbers.contains("\n")) {
-			String[] result = splitString(numbers);
+			// String[] result = splitString(numbers);
 			
-			return sum(result);
+			// return sum(result);
+
+			int[] arr = onlyInts(numbers);
+			int total = 0;
+			for (int i : arr) {
+				total += i;
+			}
+			return total;
 		}
 
 		return toInt(numbers);
@@ -37,6 +44,30 @@ public class Calculator {
 				total += toInt(i);
 			}
 		return total;
+	}
+
+	private static int[] onlyInts(String s) {
+		int[] arr;
+		arr = new int[s.length()];
+		int i = 0;
+		String[] foo = s.split("");
+		for (String text : foo) {
+			if (isInteger(text)) {
+				int number = toInt(text);
+				arr[i] = number;
+				i++;
+			}
+		}
+		return arr;
+	}
+
+	private static boolean isInteger(String s) {
+		try {
+			toInt(s);
+		} catch(NumberFormatException e) {
+			return false;
+		}
+		return true;
 	}
 
 }
